@@ -23,4 +23,9 @@ def translate_polygons(geometry_collection: GeometryCollection,
       elif maxx > 180: geo_polygon = affinity.translate(polygon, xoff = -360)
       else: geo_polygon = polygon
 
-      yield json.dumps(mapping(geo_polygon)) if (output_format == "geojson") else geo_polygon
+      if output_format == "geojsondict":
+          yield mapping(geo_polygon)
+      elif outputformat == "geojson":
+          yield json.dumps(mapping(geo_polygon))
+      else:
+          yield geo_polygon
