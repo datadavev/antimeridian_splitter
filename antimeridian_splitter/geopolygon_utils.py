@@ -25,7 +25,7 @@ def translate_polygons(geometry_collection: GeometryCollection,
 
       if output_format == "geojsondict":
           yield mapping(geo_polygon)
-      elif outputformat == "geojson":
+      elif output_format == "geojson":
           yield json.dumps(mapping(geo_polygon))
       else:
           yield geo_polygon
